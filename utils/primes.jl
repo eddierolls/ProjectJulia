@@ -35,8 +35,23 @@ function primeDivisors(num)
     return out
 end
 
+function getAllDivisors(num)
+    primes = primeDivisors(num)
+    nextDivisors = Int64[1]
+    for k = keys(primes)
+        lastDivisors = nextDivisors
+        nextDivisors = Int64[]
+        for ld = lastDivisors
+            for i = 0:primes[k]
+                push!(nextDivisors,ld*k^i)
+            end
+        end
+    end
+    return nextDivisors
+end
+
 function divisorCount(num)
-    # Total divisors for num (e.g. 28 -> 1,2,4,7,14,28 = 6)
+    # Total divisors for num (e.g. 28 -> 1,2,4,7,14,28 = 6). Quicker than getAllDivisors
     totalDivisors = 1
     divisorsDict = primeDivisors(num)
     for v=values(divisorsDict)
@@ -44,3 +59,4 @@ function divisorCount(num)
     end
     return totalDivisors
 end
+

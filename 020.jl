@@ -1,0 +1,1 @@
+println(sum([parse(Int16,x) for x = string(factorial(BigInt(100)))]))
