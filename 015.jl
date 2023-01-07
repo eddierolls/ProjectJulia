@@ -1,0 +1,1 @@
+print(binomial(40,20))

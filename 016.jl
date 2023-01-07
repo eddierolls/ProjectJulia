@@ -1,0 +1,1 @@
+println(sum([parse(Int8,s) for s = string(BigInt(2)^1000)]))
