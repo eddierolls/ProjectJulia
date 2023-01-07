@@ -35,7 +35,7 @@ function primeDivisors(num)
     return out
 end
 
-function getAllDivisors(num)
+function getAllDivisors(num,includeSelf=true)
     primes = primeDivisors(num)
     nextDivisors = Int64[1]
     for k = keys(primes)
@@ -46,6 +46,9 @@ function getAllDivisors(num)
                 push!(nextDivisors,ld*k^i)
             end
         end
+    end
+    if !includeSelf
+        deleteat!(nextDivisors,findall(x->x==num,nextDivisors))
     end
     return nextDivisors
 end
