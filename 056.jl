@@ -1,0 +1,1 @@
+println(maximum([sum([parse(Int8,c) for c=string(BigInt(a)^b)]) for a=1:100,b=1:100 ]))
