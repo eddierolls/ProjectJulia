@@ -13,6 +13,21 @@ function primesLessThan(num)
     return allPrimes
 end
 
+function isPrimeFromList(num,primeList)
+    if primeList[end]^2<num
+        error("Prime list too small")
+    end
+    isPrime = true
+    ix = 1
+    while primeList[ix]^2<=num && isPrime
+        if num%primeList[ix]==0
+            isPrime = false
+       end
+       ix+=1
+    end
+    return isPrime
+end
+
 function primeDivisors(num)
     # Returns a dict of prime divisors (keys) and the number of times each divisor appears (values)
     out = Dict()
